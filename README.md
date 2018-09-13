@@ -44,7 +44,8 @@ These are described in more detail below.
  requires: dplyr
  
  Since the source data is 60MB this script assumes the data set is already downloaded and unzipped into the working directory.
- It can be downloaded here : <a href='https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'>
+ It can be downloaded <a href='https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'>here</a> 
+ 
  or you can uncomment the section in the script which will do it for you. 
 
  
