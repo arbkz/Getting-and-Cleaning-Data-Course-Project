@@ -13,7 +13,8 @@ This Repo includes:
 
 The original/input dataset for the analysis is: Human Activity Recognition Using Smartphones Dataset Version 1.0 (UCI HAR) 
 
-For more information about the dataset refer to the source here <a href='http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones'>
+For more information about the dataset refer to the source 
+<a href='http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones'>here</a>
 
 Please review the original README.txt file in the original data set for more info 
 
