@@ -45,16 +45,20 @@ requires: dplyr
  
 Since the source data is 60MB this script assumes the data set is already downloaded and unzipped into a subfolder of the working directory (I.E. path to data is './UCI HAR Dataset').
 
-The script reads the following input files into data tables 
-* activity_labels.txt  is used to create a mapping table to translate the activity codes in y_test/train  to meaningful descriptions of the activities 
-* features.txt is used to determine which of the 561 columns of the X_train/X_test dataset represent a mean or standard deviation and should be retained for the rest of the analysis
-* subject_(test/train).txt are read into a data table then joined together (rbind to form a complete data set)  
-* X_(test/train).txt are read into data tables and joined together (rbind to form a complete data set)
-* y_(test/train).txt are read into data tables and joined together (rbind to form a complete data set)
+The script reads the following input files 
 
-These three are then joined (cbind) to create the full dataset which includes subject id, activity label and the 66 variables/columns which represent mean and standard deviation measurements.
+Meta Data
+* activity_labels.txt is used to create a mapping table to translate the activity codes in y_test/train to meaningful descriptions of the activities 
+* features.txt is processed to determine which of the 561 columns of the X_train/X_test dataset represent a mean or standard deviation and should be retained for the rest of the analysis
 
-This dataset is then grouped by Activity to find the average value of each variable for a given activity and by Subject  o find the average value of each variable for a given subject.
+Measurement Data
+* subject_(test/train).txt are read into data tables  
+* X_(test/train).txt are read into data tables and 
+* y_(test/train).txt are read into data tables and 
+
+Each of the 3 measurement data files for test/train are enriched and then joined to create a combined dataset which includes subject id, activity description and the 66 variables/columns which represent mean and standard deviation measurements.
+
+This dataset is then grouped by Activity Description and SubjectIDto find the average value of each variable for a given activity and by Subject  o find the average value of each variable for a given subject.
 
 Finally the output file is created in the working directory. MeanByActivityAndSubject.txt
 
