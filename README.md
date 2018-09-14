@@ -2,12 +2,12 @@
 
 ## Introduction
 
-The purpose of this project is to demonstrate my ability to collect, work with, and clean a data set. (Human Activity Recognition Using Smartphones Dataset Version 1.0)
+The purpose of this project is to demonstrate the ability to collect, work with, and clean a data set. (Human Activity Recognition Using Smartphones Dataset Version 1.0)
 
 This Repo includes:
 
-* An R script (runAnalysis.R) that cleans the data set and produces 2 tidy text files.
-* A codebook (Codebook.md) which describes the contents, structure, and layout of the 2 output files.
+* An R script (runAnalysis.R) that cleans the data set and produces a tidy ouput file.
+* A codebook (Codebook.md) which describes the contents, structure, and layout of the output file.
 
 ## The Data  
 
@@ -35,9 +35,8 @@ The analysis consists of the following steps:
 * 2 The measurements on the mean and standard deviation for each measurement are extracted.
 * 3 Descriptive activity names are added to the activities in the data set
 * 4 The data is relabelled with  descriptive variable names.
-* 5 From the data set in step 4, a second, independent tidy data set is created with the average of each variable for each activity and each subject.
+* 5 From the data set in step 4, a second, independent tidy data set is created with the average of each variable for each activity and subject.
 
-These are described in more detail below.
 
 ## The Script 
 **runAnalysis.R**
@@ -57,6 +56,5 @@ These three are then joined (cbind) to create the full dataset which includes su
 
 This dataset is then grouped by Activity to find the average value of each variable for a given activity and by Subject  o find the average value of each variable for a given subject.
 
-Finally two output files are created in the working directory. MeanByActivity.txt & MeanBySubject.txt
+Finally the output file is created in the working directory. MeanByActivityAndSubject.txt
 
-## Conclusion
