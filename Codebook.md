@@ -15,13 +15,14 @@ Each row represents the average of the 66 mean and standard deviation measuremen
 The Columns are described below: 
 
 
-* <b>ActivityDescription</b>:  Description of the Activity  
+* __ActivityDescription__:  Description of the Activity  
     + Type: Factor 
     + Values: 
                 WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING  
 
 
-* </b>SubjectID</b>:            ID of the test subject performing the various activities
+
+* __SubjectID__:            ID of the test subject performing the various activities
     + Type: Integer 
     + Values: 1-30
 
@@ -50,7 +51,7 @@ Where the label has a suffix of (-X/-Y/-Z)  this represents 3 distinct variables
 * Time-BodyGyroscopeMagnitude-Mean
 * Time-BodyGyroscopeMagnitude-StdDev
 * Time-BodyGyroscopeJerkMagnitude-Mean
-* Time-BodyGyroscopeJerkMagnitude-StdDev
+* Time-BodyGyroscopeJerkMagnitude-StdDev__
     
 * Frequency-BodyAcceleration-Mean(-X/-Y/-Z)
 * Frequency-BodyAcceleration-StdDev(-X/-Y/-Z)
