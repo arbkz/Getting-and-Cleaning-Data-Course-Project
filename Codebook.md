@@ -28,9 +28,6 @@ The Columns are described below:
 
 The next 66 columns represent the Average of the measurements for a given Activity and Subject. 
 
-The data is Type: Numeric   
-    and the Values are normalised and bounded within [-1,1].
-
 Where the label has a suffix of (-X/-Y/-Z)  this represents 3 distinct variables which are  measurements for the X,Y and Z axis
 
 
@@ -70,8 +67,8 @@ Where the label has a suffix of (-X/-Y/-Z)  this represents 3 distinct variables
 * Frequency-BodyBodyGyroscopeJerkMagnitude-Mean
 * Frequency-BodyBodyGyroscopeJerkMagnitude-StdDev
 
-
-
+    + Type: Numeric 
+    + Values:  Normalised and bounded within [-1,1]
 
 
 
