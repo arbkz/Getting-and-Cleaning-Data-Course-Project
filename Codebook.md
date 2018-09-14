@@ -15,19 +15,15 @@ Each row represents the average of the 66 mean and standard deviation measuremen
 The Columns are described below: 
 
 
-ActivityDescription:    (Type: Factor) 
-    Description of the Activity
-        Values: 
-                WALKING 
-                WALKING_UPSTAIRS  
-                WALKING_DOWNSTAIRS
-                SITTING           
-                STANDING          
-                LAYING  
+* <b>ActivityDescription</b>:  Description of the Activity  
+    + Type: Factor 
+    + Values: 
+                WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING  
 
-SubjectID:   (Type: Integer)           
-    ID of the test subject performing the various activities
-        Values: 1-30
+
+* </b>SubjectID</b>:            ID of the test subject performing the various activities
+    + Type: Integer 
+    + Values: 1-30
 
 
 The next 66 columns represent the Average of the measurements for a given Activity and Subject. 
@@ -35,43 +31,46 @@ The next 66 columns represent the Average of the measurements for a given Activi
 The data is Type: Numeric   
     and the Values are normalised and bounded within [-1,1].
 
-Where the label has a suffix of (-X/-Y/-Z)  this represents 3 distinct variables which represent measurements for the X,Y and Z axis
+Where the label has a suffix of (-X/-Y/-Z)  this represents 3 distinct variables which are  measurements for the X,Y and Z axis
 
-    Time-BodyAcceleration-Mean(-X/-Y/-Z)
-    Time-BodyAcceleration-StdDev(-X/-Y/-Z)
-    Time-GravityAcceleration-Mean(-X/-Y/-Z)
-    Time-GravityAcceleration-StdDev(-X/-Y/-Z)
-    Time-BodyAccelerationJerk-Mean(-X/-Y/-Z)
-    Time-BodyAccelerationJerk-StdDev(-X/-Y/-Z)
-    Time-BodyGyroscope-Mean(-X/-Y/-Z)
-    Time-BodyGyroscope-StdDev(-X/-Y/-Z)
-    Time-BodyGyroscopeJerk-Mean(-X/-Y/-Z)
-    Time-BodyGyroscopeJerk-StdDev(-X/-Y/-Z)
-    Time-BodyAccelerationMagnitude-Mean
-    Time-BodyAccelerationMagnitude-StdDev
-    Time-GravityAccelerationMagnitude-Mean
-    Time-GravityAccelerationMagnitude-StdDev
-    Time-BodyAccelerationJerkMagnitude-Mean
-    Time-BodyAccelerationJerkMagnitude-StdDev
-    Time-BodyGyroscopeMagnitude-Mean
-    Time-BodyGyroscopeMagnitude-StdDev
-    Time-BodyGyroscopeJerkMagnitude-Mean
-    Time-BodyGyroscopeJerkMagnitude-StdDev
+
+* Time-BodyAcceleration-Mean(-X/-Y/-Z)
+* Time-BodyAcceleration-StdDev(-X/-Y/-Z)
+* Time-GravityAcceleration-Mean(-X/-Y/-Z)
+* Time-GravityAcceleration-StdDev(-X/-Y/-Z)
+* Time-BodyAccelerationJerk-Mean(-X/-Y/-Z)
+* Time-BodyAccelerationJerk-StdDev(-X/-Y/-Z)
+* Time-BodyGyroscope-Mean(-X/-Y/-Z)
+* Time-BodyGyroscope-StdDev(-X/-Y/-Z)
+* Time-BodyGyroscopeJerk-Mean(-X/-Y/-Z)
+* Time-BodyGyroscopeJerk-StdDev(-X/-Y/-Z)
+* Time-BodyAccelerationMagnitude-Mean
+* Time-BodyAccelerationMagnitude-StdDev
+* Time-GravityAccelerationMagnitude-Mean
+* Time-GravityAccelerationMagnitude-StdDev
+* Time-BodyAccelerationJerkMagnitude-Mean
+* Time-BodyAccelerationJerkMagnitude-StdDev
+* Time-BodyGyroscopeMagnitude-Mean
+* Time-BodyGyroscopeMagnitude-StdDev
+* Time-BodyGyroscopeJerkMagnitude-Mean
+* Time-BodyGyroscopeJerkMagnitude-StdDev
     
-    Frequency-BodyAcceleration-Mean(-X/-Y/-Z)
-    Frequency-BodyAcceleration-StdDev(-X/-Y/-Z)
-    Frequency-BodyAccelerationJerk-Mean(-X/-Y/-Z)
-    Frequency-BodyAccelerationJerk-StdDev(-X/-Y/-Z)
-    Frequency-BodyGyroscope-Mean(-X/-Y/-Z)
-    Frequency-BodyGyroscope-StdDev(-X/-Y/-Z)
-    Frequency-BodyAccelerationMagnitude-Mean
-    Frequency-BodyAccelerationMagnitude-StdDev
-    Frequency-BodyBodyAccelerationJerkMagnitude-Mean
-    Frequency-BodyBodyAccelerationJerkMagnitude-StdDev
-    Frequency-BodyBodyGyroscopeMagnitude-Mean
-    Frequency-BodyBodyGyroscopeMagnitude-StdDev
-    Frequency-BodyBodyGyroscopeJerkMagnitude-Mean
-    Frequency-BodyBodyGyroscopeJerkMagnitude-StdDev
+* Frequency-BodyAcceleration-Mean(-X/-Y/-Z)
+* Frequency-BodyAcceleration-StdDev(-X/-Y/-Z)
+* Frequency-BodyAccelerationJerk-Mean(-X/-Y/-Z)
+* Frequency-BodyAccelerationJerk-StdDev(-X/-Y/-Z)
+* Frequency-BodyGyroscope-Mean(-X/-Y/-Z)
+* Frequency-BodyGyroscope-StdDev(-X/-Y/-Z)
+* Frequency-BodyAccelerationMagnitude-Mean
+* Frequency-BodyAccelerationMagnitude-StdDev
+* Frequency-BodyBodyAccelerationJerkMagnitude-Mean
+* Frequency-BodyBodyAccelerationJerkMagnitude-StdDev
+* Frequency-BodyBodyGyroscopeMagnitude-Mean
+* Frequency-BodyBodyGyroscopeMagnitude-StdDev
+* Frequency-BodyBodyGyroscopeJerkMagnitude-Mean
+* Frequency-BodyBodyGyroscopeJerkMagnitude-StdDev
+
+
 
 
 
