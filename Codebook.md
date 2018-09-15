@@ -6,11 +6,23 @@ The data set consists of 1 table:
 
 * MeanByActivityAndSubject.txt (180 x 68)
 
-This is  derived from the Human Activity Recognition Using Smartphones Dataset Version 1.0 (UCI HAR) using the steps described in the Readme.
+This is derived from the Human Activity Recognition Using Smartphones Dataset Version 1.0 (UCI HAR) using the steps described in the Readme.
+
+The original dataset was divided in two parts.
+
+1. Inertial sensor data 
+2. Records of activity windows. 
+
+This dataset is obtained from the second data set (the activity labels, subject information and mean and standard deviation features from the dataset) using the steps described in the README
+
 
 ## The Data
 
-Each row represents the average of the 66 mean and standard deviation measurements from the original dataset for a given Activity and Test Subject
+ Each row is composed of: 
+ 
+- An activity label. 
+- An identifier of the subject who carried out the experiment.
+- A 66-feature vector representing the averages of the 66 mean and standard deviation measurements for a given Activity and Test Subject
 
 The Columns are described below: 
 
@@ -27,10 +39,20 @@ The Columns are described below:
     + Values: 1-30
 
 
-The next 66 columns represent the Average of the measurements for a given Activity and Subject. 
+The next 66 columns represent the Average of each feature for a given Activity and Subject. 
 
-Where the label has a suffix of (-X/-Y/-Z)  this represents 3 distinct variables which are  measurements for the X,Y and Z axis
+The prefix of Time implies a time domain variable 
+The prefix of Frequency implies a frequency domain variable 
 
+Where the variable has a suffix of (-X/-Y/-Z) it is short hand for 3 distinct measurements for the X,Y and Z axis
+
+The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/seg2). 
+
+The gyroscope units are rad/seg. 
+
+The values are normalized and bounded within [-1,1].
+
+Time Domain Variables
 
 * Time-BodyAcceleration-Mean(-X/-Y/-Z)
 * Time-BodyAcceleration-StdDev(-X/-Y/-Z)
@@ -51,7 +73,12 @@ Where the label has a suffix of (-X/-Y/-Z)  this represents 3 distinct variables
 * Time-BodyGyroscopeMagnitude-Mean
 * Time-BodyGyroscopeMagnitude-StdDev
 * Time-BodyGyroscopeJerkMagnitude-Mean
-* Time-BodyGyroscopeJerkMagnitude-StdDev__
+* Time-BodyGyroscopeJerkMagnitude-StdDev
+
+    + Type: Numeric 
+    + Values:  Normalised and bounded within [-1,1]
+
+Frequency Domain Variables
     
 * Frequency-BodyAcceleration-Mean(-X/-Y/-Z)
 * Frequency-BodyAcceleration-StdDev(-X/-Y/-Z)
@@ -61,12 +88,12 @@ Where the label has a suffix of (-X/-Y/-Z)  this represents 3 distinct variables
 * Frequency-BodyGyroscope-StdDev(-X/-Y/-Z)
 * Frequency-BodyAccelerationMagnitude-Mean
 * Frequency-BodyAccelerationMagnitude-StdDev
-* Frequency-BodyBodyAccelerationJerkMagnitude-Mean
-* Frequency-BodyBodyAccelerationJerkMagnitude-StdDev
-* Frequency-BodyBodyGyroscopeMagnitude-Mean
-* Frequency-BodyBodyGyroscopeMagnitude-StdDev
-* Frequency-BodyBodyGyroscopeJerkMagnitude-Mean
-* Frequency-BodyBodyGyroscopeJerkMagnitude-StdDev
+* Frequency-BodyAccelerationJerkMagnitude-Mean
+* Frequency-BodyAccelerationJerkMagnitude-StdDev
+* Frequency-BodyGyroscopeMagnitude-Mean
+* Frequency-BodyGyroscopeMagnitude-StdDev
+* Frequency-BodyGyroscopeJerkMagnitude-Mean
+* Frequency-BodyGyroscopeJerkMagnitude-StdDev
 
     + Type: Numeric 
     + Values:  Normalised and bounded within [-1,1]
