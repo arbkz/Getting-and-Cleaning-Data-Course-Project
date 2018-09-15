@@ -12,7 +12,6 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. 
 
-
 The original dataset was divided in two parts.
 
 1. Inertial sensor data 
@@ -20,6 +19,9 @@ The original dataset was divided in two parts.
 
 This dataset is obtained from the second part (only the activity labels, subject information and mean and standard deviation features were used) using the steps described in the README
 
+Credit goes to Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+
+Links to the original dataset can be found in the README
 
 ## The Data
 
