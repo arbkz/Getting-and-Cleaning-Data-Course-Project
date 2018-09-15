@@ -52,7 +52,7 @@ The gyroscope units are rad/seg.
 
 The values are normalized and bounded within [-1,1].
 
-Time Domain Variables
+<b>Time Domain Variables</b>
 
 * Time-BodyAcceleration-Mean(-X/-Y/-Z)
 * Time-BodyAcceleration-StdDev(-X/-Y/-Z)
@@ -78,7 +78,7 @@ Time Domain Variables
     + Type: Numeric 
     + Values:  Normalised and bounded within [-1,1]
 
-Frequency Domain Variables
+<b>Frequency Domain Variables</b>
     
 * Frequency-BodyAcceleration-Mean(-X/-Y/-Z)
 * Frequency-BodyAcceleration-StdDev(-X/-Y/-Z)
