@@ -6,14 +6,14 @@ The data set consists of 1 table:
 
 * MeanByActivityAndSubject.txt (180 x 68)
 
-This is derived from the Human Activity Recognition Using Smartphones Dataset Version 1.0 (UCI HAR) using the steps described in the Readme.
+This is derived from the Human Activity Recognition Using Smartphones Dataset Version 1.0 (UCI HAR).
 
 The original dataset was divided in two parts.
 
 1. Inertial sensor data 
 2. Records of activity windows. 
 
-This dataset is obtained from the second data set (the activity labels, subject information and mean and standard deviation features from the dataset) using the steps described in the README
+This dataset is obtained from the second part (only the activity labels, subject information and mean and standard deviation features were used) using the steps described in the README
 
 
 ## The Data
