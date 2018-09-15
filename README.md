@@ -44,9 +44,8 @@ requires: dplyr
  
 Since the source data is 60MB this script assumes the data set is already downloaded and unzipped into a subfolder of the working directory (I.E. path to data is './UCI HAR Dataset').
 
-The script reads the following input files 
+The script reads the following input files:
 
-The following files are used in this  analysis : 
 * activity_labels.txt  -  used to map the activity codes to meaningful descriptions of the acitivities 
 * features.txt -  contains the headings for the 561 columns of the Activity measurement data in X_train/X_test data sets
 * subject_(test/train).txt - used to obtain the subject id (1-30) of the person who performed each activity 
