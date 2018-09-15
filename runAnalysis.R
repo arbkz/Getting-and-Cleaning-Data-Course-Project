@@ -65,12 +65,11 @@ newnames <- gsub('Mag','Magnitude',newnames)
 newnames <- gsub('Gyro','Gyroscope',newnames)
 newnames <- gsub('mean','Mean',newnames)
 newnames <- gsub('std','StdDev',newnames)
+newnames <- gsub('bodybody','Body',newnames)
 
 keepCols$variablename <- newnames
 
-# The above should address requirement #3  Keep only columns with measurements relating to mean and standard deviation
-
-
+# The above should address requirement #4 appropriately labels the data set with descriptive variable names
 ## Read in subject files
 
 # read in the subject_test file that details the individial performing the activity
@@ -138,6 +137,6 @@ byActivitySubject <- group_by(completeData, ActivityDescription, SubjectID)
 
 meanByActivitySubject <- summarise_at(byActivitySubject, 3:68, funs(mean))
 
-# Write output files from the 2 summary tables
+# Write output files from the summary table
 write.table(meanByActivitySubject, 'MeanByActivityAndSubject.txt', row.names = FALSE)
 
