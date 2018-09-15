@@ -57,8 +57,8 @@ The Script does the following:
 
 **Pre-Processing Meta Data**
 
-* activity_labels.txt is used to create a mapping table to translate the activity codes in y_test/train to meaningful descriptions of the activities 
-* features.txt is processed to determine which of the 561 columns of the X_train/X_test dataset represent a mean or standard deviation feature. This produces a vector of column numbers that is used to filter X_(test/train)
+* activity_labels.txt is used to create a mapping table to translate the activity codes in y_test/train to meaningful descriptions of the activities. 
+* features.txt is processed to determine which of the 561 columns of the X_train/X_test dataset represent a mean or standard deviation feature. This produces a vector of column numbers that is used to filter X_(test/train). The names of the columns are also enhanced to remove parenthesis and expand abbreviations to give more meaningful labels
 
 **Merge/Join Measurement Data**
 
@@ -66,11 +66,11 @@ The Script does the following:
 * X_(test/train).txt are read into data tables and then filtered to retain only the columns representing a mean or standard deviation
 * y_(test/train).txt are read into data tables and transformed to replace a numeric ID with a meaningful activity labels  
 
-Each of the 3 data files that represent test/train data are enriched/transformed and then joined (cbind) to create a complete test/train dataset which includes subject id, activity description and the 66 variables/columns which represent mean and standard deviation measurements.
+Each of the 3 data files that makes up the test/train dataset are enriched/transformed and then joined (cbind) to create a complete test/train dataset which includes subject id, activity description and the 66 variables/columns which represent mean and standard deviation measurements.
 
 The train and test datasets are then merged to form one complete dataset.
 
-This dataset is then grouped by Activity Description and SubjectID and this grouped dataset is then summarised to ive the average value of each variable for a given activity and by Subject.
+This dataset is then grouped by Activity Description and SubjectID and this grouped dataset is then summarised to give the average value of each variable for a given activity and  Subject.
 
 Finally the output file <i>MeanByActivityAndSubject.txt</i> is written to the working directory 
 
