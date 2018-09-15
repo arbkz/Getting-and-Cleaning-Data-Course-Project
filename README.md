@@ -20,13 +20,12 @@ The dataset can be downloaded <a href='https://d396qusza40orc.cloudfront.net/get
 
 Please review the  README.txt file in the original data set for more info.
 
-Only following files from the datasset are used in this  analysis : 
-* activity_labels.txt  -  used to map the activity codes to meaningful descriptions of the acitivities 
-* features.txt -  contains the headings for the 561 columns of the Activity measurement data in X_train/X_test data sets
-* subject_(test/train).txt - used to obtain the subject id (1-30) of the person who performed each activity 
-* X_(test/train).txt - various statistics related to the original gyro measurements 
-* y_(test/train).txt - the activity labels for the each observation in X_(test/train) dataset (WALKING, STANDING 
+The original dataset was divided in two parts.
 
+1. Inertial sensor data 
+2. Records of activity windows. 
+
+This analysis uses only the second data set and only the activity labels, subject information and mean and standard deviation features are used in dataset analysis. 
 
 ## The Analysis 
 
@@ -47,18 +46,31 @@ Since the source data is 60MB this script assumes the data set is already downlo
 
 The script reads the following input files 
 
-Meta Data
+The following files are used in this  analysis : 
+* activity_labels.txt  -  used to map the activity codes to meaningful descriptions of the acitivities 
+* features.txt -  contains the headings for the 561 columns of the Activity measurement data in X_train/X_test data sets
+* subject_(test/train).txt - used to obtain the subject id (1-30) of the person who performed each activity 
+* X_(test/train).txt - various statistics related to the original gyro measurements 
+* y_(test/train).txt - the activity labels for the each observation in X_(test/train) dataset (WALKING, STANDING 
+
+The Script does the following:
+
+**Pre-Processing Meta Data**
+
 * activity_labels.txt is used to create a mapping table to translate the activity codes in y_test/train to meaningful descriptions of the activities 
-* features.txt is processed to determine which of the 561 columns of the X_train/X_test dataset represent a mean or standard deviation and should be retained for the rest of the analysis
+* features.txt is processed to determine which of the 561 columns of the X_train/X_test dataset represent a mean or standard deviation feature. This produces a vector of column numbers that is used to filter X_(test/train)
 
-Measurement Data
-* subject_(test/train).txt are read into data tables  
-* X_(test/train).txt are read into data tables and 
-* y_(test/train).txt are read into data tables and 
+**Merge/Join Measurement Data**
 
-Each of the 3 measurement data files for test/train are enriched and then joined to create a combined dataset which includes subject id, activity description and the 66 variables/columns which represent mean and standard deviation measurements.
+* subject_(test/train).txt are read into data tables 
+* X_(test/train).txt are read into data tables and then filtered to retain only the columns representing a mean or standard deviation
+* y_(test/train).txt are read into data tables and transformed to replace a numeric ID with a meaningful activity labels  
 
-This dataset is then grouped by Activity Description and SubjectIDto find the average value of each variable for a given activity and by Subject  o find the average value of each variable for a given subject.
+Each of the 3 data files that represent test/train data are enriched/transformed and then joined (cbind) to create a complete test/train dataset which includes subject id, activity description and the 66 variables/columns which represent mean and standard deviation measurements.
 
-Finally the output file is created in the working directory. MeanByActivityAndSubject.txt
+The train and test datasets are then merged to form one complete dataset.
+
+This dataset is then grouped by Activity Description and SubjectID and this grouped dataset is then summarised to ive the average value of each variable for a given activity and by Subject.
+
+Finally the output file <i>MeanByActivityAndSubject.txt</i> is written to the working directory 
 
