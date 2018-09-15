@@ -30,11 +30,11 @@ This analysis uses only the second data set and only the activity labels, subjec
 ## The Analysis 
 
 The analysis consists of the following steps:
-* 1 The training and the test sets are merged  to create one data set.
-* 2 The measurements on the mean and standard deviation for each measurement are extracted.
-* 3 Descriptive activity names are added to the activities in the data set
-* 4 The data is relabelled with  descriptive variable names.
-* 5 From the data set in step 4, a second, independent tidy data set is created with the average of each variable for each activity and subject.
+1. The training and the test sets are merged  to create one data set.
+1. The measurements on the mean and standard deviation for each measurement are extracted.
+1. Descriptive activity names are added to the activities in the data set
+1. The data is relabelled with  descriptive variable names.
+1. From the data set in step 4, a second, independent tidy data set is created with the average of each variable for each activity and subject.
 
 
 ## The Script 
