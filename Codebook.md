@@ -74,6 +74,7 @@ The data set consists of 1 table:
 
 The Columns are described below: 
 
+#### Dimensions ####
 
 * __SubjectID__:            ID of the test subject performing the various activities
     + Type: Integer 
@@ -85,7 +86,7 @@ The Columns are described below:
     + Values: 
                 WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING  
 
-
+#### Measurements
 The next 66 columns represent the Average of each feature for a given Activity and Subject. 
 
 * The prefix of Time implies a time domain variable 
@@ -98,10 +99,8 @@ The next 66 columns represent the Average of each feature for a given Activity a
 
 * The values are normalized and bounded within [-1,1].
 
-Time Domain Variables
+**Time Domain Variables**
 
-* SubjectID
-* ActivityDescription
 * Time-BodyAccelerometer-Mean(-X/-Y/-Z)
 * Time-BodyAccelerometer-StdDev(-X/-Y/-Z)
 * Time-GravityAccelerometer-Mean(-X/-Y/-Z)
@@ -123,11 +122,10 @@ Time Domain Variables
 * Time-BodyGyroscopeJerkMagnitude-Mean
 * Time-BodyGyroscopeJerkMagnitude-StdDev
 
-
     + Type: Numeric 
     + Values:  Normalised and bounded within [-1,1]
 
-Frequency Domain Variables
+**Frequency Domain Variables**
 
 * Frequency-BodyAccelerometer-Mean(-X/-Y/-Z)
 * Frequency-BodyAccelerometer-StdDev(-X/-Y/-Z)
@@ -143,7 +141,6 @@ Frequency Domain Variables
 * Frequency-BodyGyroscopeMagnitude-StdDev
 * Frequency-BodyGyroscopeJerkMagnitude-Mean
 * Frequency-BodyGyroscopeJerkMagnitude-StdDev
-
 
     + Type: Numeric 
     + Values:  Normalised and bounded within [-1,1]
