@@ -1,17 +1,60 @@
 # Codebook for Coursera Getting and Cleaning Data Assignment
 
+## Data Source
+
+The data is derived from the Human Activity Recognition Using Smartphones Dataset Version 1.0 (UCI HAR) using the steps described in the Readme.
+
+As per the original README:
+
+"The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details."
 
 
-This is derived from the Human Activity Recognition Using Smartphones Dataset Version 1.0 (UCI HAR) using the steps described in the Readme.
+For each record it is provided:
+======================================
 
-The original dataset was divided in two parts.
+- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+- Triaxial Angular velocity from the gyroscope. 
+- A 561-feature vector with time and frequency domain variables. 
+- Its activity label. 
+- An identifier of the subject who carried out the experiment.
+
+## The Analysis
+
+The original dataset is divided in two parts.
 
 1. Inertial sensor data 
 2. Records of activity windows. 
 
-This analysis uses only the second data set and only the activity labels, subject information and mean and standard deviation features are used in dataset analysis. 
+This analysis uses only the second data set (Records of activity Windows) and only the activity labels, subject information and mean and standard deviation features are used.
 
+The following files are used:
 
+* activity_labels.txt  -  used to map the activity codes to meaningful descriptions of the acitivities 
+* features.txt -  contains the headings for the 561 columns of the Activity measurement data in X_train/X_test data sets
+* subject_(test/train).txt - used to obtain the subject id (1-30) of the person who performed each activity 
+* X_(test/train).txt - various statistics related to the original gyro measurements 
+* y_(test/train).txt - the activity labels for the each observation in X_(test/train) dataset (WALKING, STANDING 
+
+The analysis consists of the following steps:
+
+The training and the test sets are merged to create one data set.
+The measurements on the mean and standard deviation for each measurement are extracted.
+Descriptive activity names are added to the activities in the data set
+The data is relabelled with descriptive variable names.
+From the data set in step 4, a second, independent tidy data set is created with the average of each variable for each activity and subject.
+
+The Definition of Tidy Data is here (http://vita.had.co.nz/papers/tidy-data.html)
+
+Each variable forms a column.
+Each observation forms a row.
+Each type of observational unit forms a table.
+
+Since each measurement has an X Y and Z component which vary independently the decision was made not to gather these into a dimenion and value
+Since the time and frequency features have different units of measurement these were not gathered and split into domain and Feature   
+
+Note: The "MeanFreq" and Angular measurements are not included as these are technically not what is requested.
 
 ## The Dataset 
 
@@ -26,7 +69,87 @@ The data set consists of 1 table:
 
 - A 66-feature vector representing the averages of the 66 mean and standard deviation measurements for a given Activity and Test Subject
 
-### The Structure
+
+### The Data Structure
+
+The Columns are described below: 
+
+
+* __SubjectID__:            ID of the test subject performing the various activities
+    + Type: Integer 
+    + Values: 1-30
+
+
+* __ActivityDescription__:  Description of the Activity  
+    + Type: Factor 
+    + Values: 
+                WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING  
+
+
+The next 66 columns represent the Average of each feature for a given Activity and Subject. 
+
+* The prefix of Time implies a time domain variable 
+* The prefix of Frequency implies a frequency domain variable 
+
+* Where the variable has a suffix of (-X/-Y/-Z) it is short hand for 3 distinct measurements for the X,Y and Z axis
+
+* The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/seg2). 
+* The gyroscope units are rad/seg. 
+
+* The values are normalized and bounded within [-1,1].
+
+Time Domain Variables
+
+* SubjectID
+* ActivityDescription
+* Time-BodyAccelerometer-Mean(-X/-Y/-Z)
+* Time-BodyAccelerometer-StdDev(-X/-Y/-Z)
+* Time-GravityAccelerometer-Mean(-X/-Y/-Z)
+* Time-GravityAccelerometer-StdDev(-X/-Y/-Z)
+* Time-BodyAccelerometerJerk-Mean(-X/-Y/-Z)
+* Time-BodyAccelerometerJerk-StdDev(-X/-Y/-Z)
+* Time-BodyGyroscope-Mean(-X/-Y/-Z)
+* Time-BodyGyroscope-StdDev(-X/-Y/-Z)
+* Time-BodyGyroscopeJerk-Mean(-X/-Y/-Z)
+* Time-BodyGyroscopeJerk-StdDev(-X/-Y/-Z)
+* Time-BodyAccelerometerMagnitude-Mean
+* Time-BodyAccelerometerMagnitude-StdDev
+* Time-GravityAccelerometerMagnitude-Mean
+* Time-GravityAccelerometerMagnitude-StdDev
+* Time-BodyAccelerometerJerkMagnitude-Mean
+* Time-BodyAccelerometerJerkMagnitude-StdDev
+* Time-BodyGyroscopeMagnitude-Mean
+* Time-BodyGyroscopeMagnitude-StdDev
+* Time-BodyGyroscopeJerkMagnitude-Mean
+* Time-BodyGyroscopeJerkMagnitude-StdDev
+
+
+    + Type: Numeric 
+    + Values:  Normalised and bounded within [-1,1]
+
+Frequency Domain Variables
+
+* Frequency-BodyAccelerometer-Mean(-X/-Y/-Z)
+* Frequency-BodyAccelerometer-StdDev(-X/-Y/-Z)
+* Frequency-BodyAccelerometerJerk-Mean(-X/-Y/-Z)
+* Frequency-BodyAccelerometerJerk-StdDev(-X/-Y/-Z)
+* Frequency-BodyGyroscope-Mean(-X/-Y/-Z)
+* Frequency-BodyGyroscope-StdDev(-X/-Y/-Z)
+* Frequency-BodyAccelerometerMagnitude-Mean
+* Frequency-BodyAccelerometerMagnitude-StdDev
+* Frequency-BodyAccelerometerJerkMagnitude-Mean
+* Frequency-BodyAccelerometerJerkMagnitude-StdDev
+* Frequency-BodyGyroscopeMagnitude-Mean
+* Frequency-BodyGyroscopeMagnitude-StdDev
+* Frequency-BodyGyroscopeJerkMagnitude-Mean
+* Frequency-BodyGyroscopeJerkMagnitude-StdDev
+
+
+    + Type: Numeric 
+    + Values:  Normalised and bounded within [-1,1]
+
+
+## Some sample Data 
 
 Produced by: str(meanByActivitySubject)
 
@@ -104,82 +227,4 @@ Classes ‘grouped_df’, ‘tbl_df’, ‘tbl’ and 'data.frame':	180 obs. of 
  * Frequency-BodyGyroscopeJerkMagnitude-StdDev    : num  -0.382 -0.694 -0.392 -0.987 -0.995 ...
  * - attr(*, "vars")= chr "SubjectID"
  * - attr(*, "drop")= logi TRUE
-
-### The Variables
-
-The Columns are described below: 
-
-
-* __SubjectID__:            ID of the test subject performing the various activities
-    + Type: Integer 
-    + Values: 1-30
-
-
-* __ActivityDescription__:  Description of the Activity  
-    + Type: Factor 
-    + Values: 
-                WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING  
-
-
-The next 66 columns represent the Average of each feature for a given Activity and Subject. 
-
-* The prefix of Time implies a time domain variable 
-* The prefix of Frequency implies a frequency domain variable 
-
-* Where the variable has a suffix of (-X/-Y/-Z) it is short hand for 3 distinct measurements for the X,Y and Z axis
-
-* The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/seg2). 
-* The gyroscope units are rad/seg. 
-
-* The values are normalized and bounded within [-1,1].
-
-**Time Domain Variables**
-
-* Time-BodyAccelerometer-Mean(-X/-Y/-Z)
-* Time-BodyAccelerometer-StdDev(-X/-Y/-Z)
-* Time-GravityAccelerometer-Mean(-X/-Y/-Z)
-* Time-GravityAccelerometer-StdDev(-X/-Y/-Z)
-* Time-BodyAccelerometerJerk-Mean(-X/-Y/-Z)
-* Time-BodyAccelerometerJerk-StdDev(-X/-Y/-Z)
-* Time-BodyGyroscope-Mean(-X/-Y/-Z)
-* Time-BodyGyroscope-StdDev(-X/-Y/-Z)
-* Time-BodyGyroscopeJerk-Mean(-X/-Y/-Z)
-* Time-BodyGyroscopeJerk-StdDev(-X/-Y/-Z)
-* Time-BodyAccelerometerMagnitude-Mean
-* Time-BodyAccelerometerMagnitude-StdDev
-* Time-GravityAccelerometerMagnitude-Mean
-* Time-GravityAccelerometerMagnitude-StdDev
-* Time-BodyAccelerometerJerkMagnitude-Mean
-* Time-BodyAccelerometerJerkMagnitude-StdDev
-* Time-BodyGyroscopeMagnitude-Mean
-* Time-BodyGyroscopeMagnitude-StdDev
-* Time-BodyGyroscopeJerkMagnitude-Mean
-* Time-BodyGyroscopeJerkMagnitude-StdDev
-
-
-    + Type: Numeric 
-    + Values:  Normalised and bounded within [-1,1]
-
-**Frequency Domain Variables**
-
-* Frequency-BodyAccelerometer-Mean(-X/-Y/-Z)
-* Frequency-BodyAccelerometer-StdDev(-X/-Y/-Z)
-* Frequency-BodyAccelerometerJerk-Mean(-X/-Y/-Z)
-* Frequency-BodyAccelerometerJerk-StdDev(-X/-Y/-Z)
-* Frequency-BodyGyroscope-Mean(-X/-Y/-Z)
-* Frequency-BodyGyroscope-StdDev(-X/-Y/-Z)
-* Frequency-BodyAccelerometerMagnitude-Mean
-* Frequency-BodyAccelerometerMagnitude-StdDev
-* Frequency-BodyAccelerometerJerkMagnitude-Mean
-* Frequency-BodyAccelerometerJerkMagnitude-StdDev
-* Frequency-BodyGyroscopeMagnitude-Mean
-* Frequency-BodyGyroscopeMagnitude-StdDev
-* Frequency-BodyGyroscopeJerkMagnitude-Mean
-* Frequency-BodyGyroscopeJerkMagnitude-StdDev
-
-
-    + Type: Numeric 
-    + Values:  Normalised and bounded within [-1,1]
-
-
 
