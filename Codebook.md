@@ -133,7 +133,7 @@ The next 66 columns represent the Average of each feature for a given Activity a
 
 * The values are normalized and bounded within [-1,1].
 
-Time Domain Variables
+**Time Domain Variables**
 
 * Time-BodyAccelerometer-Mean(-X/-Y/-Z)
 * Time-BodyAccelerometer-StdDev(-X/-Y/-Z)
@@ -160,7 +160,7 @@ Time Domain Variables
     + Type: Numeric 
     + Values:  Normalised and bounded within [-1,1]
 
-Frequency Domain Variables
+**Frequency Domain Variables**
 
 * Frequency-BodyAccelerometer-Mean(-X/-Y/-Z)
 * Frequency-BodyAccelerometer-StdDev(-X/-Y/-Z)
