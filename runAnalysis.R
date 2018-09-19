@@ -58,14 +58,14 @@ keepCols <- featureCols[grepl('-(mean|std)[()-]*[XYZ]*$',featureCols$variablenam
 # parse variable names to remove () and add meaningful info 
 
 newnames <- gsub('\\(\\)','',keepCols$variablename)
-newnames <- gsub('Acc','Acceleration',newnames)
+newnames <- gsub('Acc','Accelerometer',newnames)
 newnames <- gsub('^t','Time-',newnames)
 newnames <- gsub('^f','Frequency-',newnames)
 newnames <- gsub('Mag','Magnitude',newnames)
 newnames <- gsub('Gyro','Gyroscope',newnames)
 newnames <- gsub('mean','Mean',newnames)
 newnames <- gsub('std','StdDev',newnames)
-newnames <- gsub('bodybody','Body',newnames)
+newnames <- gsub('BodyBody','Body',newnames)
 
 keepCols$variablename <- newnames
 
@@ -133,10 +133,16 @@ completeData <- rbind(completeTrain,completeTest)
 
 # group by activity description and summarize mean of all value columns
 
-byActivitySubject <- group_by(completeData, ActivityDescription, SubjectID)
+byActivitySubject <- group_by(completeData, SubjectID, ActivityDescription)
 
 meanByActivitySubject <- summarise_at(byActivitySubject, 3:68, funs(mean))
 
 # Write output files from the summary table
 write.table(meanByActivitySubject, 'MeanByActivityAndSubject.txt', row.names = FALSE)
 
+
+varNames <- names(meanByActivitySubject)
+mergeNames <- gsub('-[XYZ]$','(-X/-Y/-Z)',varNames)
+mergeNames <- unique(mergeNames)
+mergeNames <- cbind('*',mergeNames)
+write.table(mergeNames, './variableNames.txt', row.names = F, col.names = F,  quote = F)
