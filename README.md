@@ -73,3 +73,7 @@ This dataset is then grouped by Activity Description and SubjectID and this grou
 
 Finally the output file <i>MeanByActivityAndSubject.txt</i> is written to the working directory 
 
+** NOTES
+
+The Analysis leaves out the MeanFreq measurements becuase technically this is not the same as a mean 
+I chose not to merge the x y and z variables becuase these are all separate measurements taken at the same time
